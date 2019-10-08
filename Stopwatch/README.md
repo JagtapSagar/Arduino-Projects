@@ -7,5 +7,5 @@ The  project  consists  on  building  a  circuit  with  the  ARDUINO  Pro  Mini 
 After  power  up,  the  4-digit  LED  display  will  display:    0.00.
 To  start  and  stop  the stopwatch, the external push button is used. To reset to zero, the reset of the Pro Mini board will be used.
 
-NOTE: 1) You can not use “Arduino.h” in Atmel Studio.
-      2) You must use instead:<avr/io.h>, <util/delay.h> and <avr/interrupt.h>
+NOTE: 1) You can not use “Arduino.h” in Atmel Studio.  
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2) You must use instead:<avr/io.h>, <util/delay.h> and <avr/interrupt.h>
