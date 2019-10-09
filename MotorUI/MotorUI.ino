@@ -1,11 +1,12 @@
+// Arduino IDE
 #include <Elegoo_GFX.h>    // Core graphics library
 #include <Elegoo_TFTLCD.h> // Hardware-specific library
 #include <TouchScreen.h>
 //-----------------------------------Defining Touchscreen---------------------------------------
-#define YP A3  // must be an analog pin, use "An" notation!
-#define XM A2  // must be an analog pin, use "An" notation!
-#define YM 9   // can be a digital pin
-#define XP 8   // can be a digital pin
+#define YP A3  // Touchscreen
+#define XM A2  
+#define YM 9    
+#define XP 8    
 #define TS_MINX 122   //Min and Max x and y
 #define TS_MAXX 918
 #define TS_MINY 72
@@ -15,20 +16,16 @@ TouchScreen ts = TouchScreen(XP, YP, XM, YM, 300);
 #define LCD_CD A2
 #define LCD_WR A1
 #define LCD_RD A0
-// optional
 #define LCD_RESET A4
-// Assign human-readable names to some common 16-bit color values:
+// Colors
 #define  BLACK   0x0000
 #define BLUE    0x001F
 #define RED     0xF800
 #define GREEN   0x07E0
-//#define CYAN    0x07FF
-//#define MAGENTA 0xF81F
 #define YELLOW  0xFFE0
 #define WHITE   0xFFFF
 Elegoo_TFTLCD tft(LCD_CS, LCD_CD, LCD_WR, LCD_RD, LCD_RESET);
 #define BOXSIZE 40
-//#define PENRADIUS 3
 #define MINPRESSURE 10
 #define MAXPRESSURE 1000
 //---------------------------------Variables----------------------------------------
@@ -67,20 +64,16 @@ void setup(void) {
   TCCR1B = 0;//SAME
   TCNT1 &= 0;//INITIALIZE COUNTER VALUE TO 0;
   //SET TOP for 20ms period
-  ICR1 = 4999;// = (16*10^6)/(50*64) - 1  (64 BEING THE PRESCALER) (50 for 20ms INCREMENTS)
+  ICR1 = PULSE_WIDTH_COUNT - 1;// = (16*10^6)/(50*64) - 1  (64 BEING THE PRESCALER) (50 for 20ms INCREMENTS)
   //USE 16 BIT TIMER1 FOR >255 8 BIT TIMER0 OR 2 FOR <255
   // Turm on Fast PWM Mode
   TCCR1A |= (1<<WGM11);
   TCCR1B |= (1<<WGM13)|(1<<WGM12)|(1<<CS11)|(1<<CS10); // Set Fast PWM & SET CS11 BIT FOR 64 PRESCALER
-  TCCR1A |= bit (COM1B1);  // Clear OC1A/OC1B on Compare Match,
-
-  //pinMode(servoPin,OUTPUT);
-  //DDRB &= 0b00000000;
+  TCCR1A |= (1<<COM1B1);  // Clear OC1A/OC1B on Compare Match,
   DDRB |= 0b00110100;
   PORTB &= 0b00000000;
   sei();//allow interrupts
  //-----------------------------------------------touchscreen setup------------------------------------- 
- // pinMode(servoPin, OUTPUT);
   Serial.begin(9600);
   tft.reset();
   uint16_t  identifier=0x9341;
@@ -119,13 +112,13 @@ void setup(void) {
   tft.setCursor(137, 212);   tft.setTextColor(BLACK);    tft.setTextSize(2);   tft.println("8");
   tft.fillRect(BOXSIZE*4, BOXSIZE*5, BOXSIZE, BOXSIZE, RED);
   tft.setCursor(177, 212);   tft.setTextColor(BLACK);    tft.setTextSize(2);   tft.println("9");
-
+  //Angle instructions on bottom
   tft.setTextColor(BLUE);
   tft.setTextSize(1);
   tft.setCursor(20,290);
   tft.print("Stepper 000-360 and Servo 000-090");
 }
-
+//---------------------Functions for Servo and Stepper
 void pulse(){
     val=val+total;
     PULSE_WIDTH = MIN_POSITION_COUNT + (val * (MAX_POSITION_COUNT - MIN_POSITION_COUNT) / 180) - 1;
@@ -173,7 +166,6 @@ void loop() {
      
     }
     
-    
     n=0; firstnum=0; secondnum=0; thirdnum=0; total=0; val=90;
     tft.fillRect(0, 250, 140, 30, BLACK);
     }
@@ -196,12 +188,12 @@ pulse();
          tft.drawRect(0, 0, BOXSIZE*3, BOXSIZE*2, WHITE);
          Serial.print("Stepper");
          motorselect=0;
-       //  _delay_ms(500);
+      
     } else if (p.x > BOXSIZE*3){
          tft.drawRect(BOXSIZE*3, 0, BOXSIZE*3, BOXSIZE*2, WHITE); 
          Serial.print("Servo");
          motorselect=1;
-     //    _delay_ms(500);
+    
        }
     if (motorselect == 0) {
       tft.fillRect(BOXSIZE*3, 0, BOXSIZE*3, BOXSIZE*2, YELLOW);
@@ -219,12 +211,12 @@ pulse();
          tft.drawRect(0, BOXSIZE*2, BOXSIZE*3, BOXSIZE*2, WHITE);
          Serial.print("CW");
          rotationselect=0;
-    //     _delay_ms(500);
+    
     } else if (p.x > BOXSIZE*3){
          tft.drawRect(BOXSIZE*3, BOXSIZE*2, BOXSIZE*3, BOXSIZE*2, WHITE); 
          Serial.print("CCW");
          rotationselect=1;
-    //     _delay_ms(500);
+    
        }
     if (rotationselect == 0) {
       tft.fillRect(BOXSIZE*3, BOXSIZE*2, BOXSIZE*3, BOXSIZE*2, YELLOW);
@@ -248,7 +240,7 @@ pulse();
          tft.setTextSize(3);
          tft.setCursor(n*20,250);
          tft.print(numberselect);
-       //  _delay_ms(500);
+      
          
     } else if (p.x < BOXSIZE*2){
          tft.drawRect(BOXSIZE, BOXSIZE*4, BOXSIZE, BOXSIZE, WHITE); 
@@ -258,7 +250,7 @@ pulse();
          tft.setTextSize(3);
          tft.setCursor(n*20,250);
          tft.print(numberselect);
-       //  _delay_ms(500);
+      
          
     } else if (p.x < BOXSIZE*3){
          tft.drawRect(BOXSIZE*2, BOXSIZE*4, BOXSIZE, BOXSIZE, WHITE);
@@ -268,7 +260,7 @@ pulse();
          tft.setTextSize(3);
          tft.setCursor(n*20,250);
          tft.print(numberselect);
-        // _delay_ms(500);
+       
          
     } else if (p.x < BOXSIZE*4){
          tft.drawRect(BOXSIZE*3, BOXSIZE*4, BOXSIZE, BOXSIZE, WHITE);
@@ -278,7 +270,7 @@ pulse();
          tft.setTextSize(3);
          tft.setCursor(n*20,250);
          tft.print(numberselect);
-       //  _delay_ms(500);
+       
          
     } else if (p.x < BOXSIZE*5){
          tft.drawRect(BOXSIZE*4, BOXSIZE*4, BOXSIZE, BOXSIZE, WHITE);
@@ -288,8 +280,6 @@ pulse();
          tft.setTextSize(3);
          tft.setCursor(n*20,250);
          tft.print(numberselect);
-    //     _delay_ms(500);
-         
     }
   }
 //selecting boxes - Numbers Second Row  
@@ -304,7 +294,7 @@ pulse();
          tft.setTextSize(3);
          tft.setCursor(n*20,250);
          tft.print(numberselect);
-      //   _delay_ms(500);
+     
          
     } else if (p.x < BOXSIZE*2){
          tft.drawRect(BOXSIZE, BOXSIZE*5, BOXSIZE, BOXSIZE, WHITE); 
@@ -314,7 +304,7 @@ pulse();
          tft.setTextSize(3);
          tft.setCursor(n*20,250);
          tft.print(numberselect);
-      //   _delay_ms(500);
+     
          
     } else if (p.x < BOXSIZE*3){
          tft.drawRect(BOXSIZE*2, BOXSIZE*5, BOXSIZE, BOXSIZE, WHITE);
@@ -324,7 +314,7 @@ pulse();
          tft.setTextSize(3);
          tft.setCursor(n*20,250);
          tft.print(numberselect);
-      //   _delay_ms(500);
+    
          
     } else if (p.x < BOXSIZE*4){
          tft.drawRect(BOXSIZE*3, BOXSIZE*5, BOXSIZE, BOXSIZE, WHITE);
@@ -334,7 +324,7 @@ pulse();
          tft.setTextSize(3);
          tft.setCursor(n*20,250);
          tft.print(numberselect);
-     //    _delay_ms(500);
+    
          
     } else if (p.x < BOXSIZE*5){
          tft.drawRect(BOXSIZE*4, BOXSIZE*5, BOXSIZE, BOXSIZE, WHITE);
@@ -344,10 +334,7 @@ pulse();
          tft.setTextSize(3);
          tft.setCursor(n*20,250);
          tft.print(numberselect);
-      //   _delay_ms(500);
-         
     }
-   // _delay_ms(1000);
   }
 //removing unselected boxes    
     if (oldnumberselect != numberselect){
