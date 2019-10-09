@@ -1,4 +1,4 @@
-// Arduino IDE
+// The following code was run in Arduino IDE
 #include <Elegoo_GFX.h>    // Core graphics library
 #include <Elegoo_TFTLCD.h> // Hardware-specific library
 #include <TouchScreen.h>
