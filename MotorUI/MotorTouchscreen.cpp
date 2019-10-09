@@ -1,3 +1,4 @@
+// The following code was run on Atmel Studio 7
 #include <Arduino.h>
 #include <Elegoo_GFX.h>    // Core graphics library
 #include <Elegoo_TFTLCD.h> // Hardware-specific library
