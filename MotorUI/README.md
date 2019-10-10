@@ -9,3 +9,12 @@ An LCD touch screen will be used to enter a position command in degrees that the
 •	Direction should be prompted as CW/CCW  
 •	After holding position for “n” seconds, the motor returns to the zero position.  
 •	Program returns to the start prompt
+
+
+
+Hardware used:<br/>
+Elegoo Uno R3<br/>
+Elegoo 2.8 Inches TFT Touch Screen with SD Card Socket<br/>
+Servo  Motor<br/>
+Stepper Motor 17hs16-2004s1<br/>
+TB6600 Stepper motor driver<br/>
