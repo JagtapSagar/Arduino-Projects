@@ -9,3 +9,12 @@ To  start  and  stop  the stopwatch, the external push button is used. To reset 
 
 NOTE: 1) You can not use “Arduino.h” in Atmel Studio.  
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2) You must use instead:<avr/io.h>, <util/delay.h> and <avr/interrupt.h>
+
+
+
+
+Hardware used:<br/>
+Elegoo Uno R3<br/>
+Resistors 10Kohm and 330ohm<br/>
+7 segment 4 digit display<br/>
+Push buttons<br/>
