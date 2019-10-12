@@ -12,9 +12,9 @@ An LCD touch screen will be used to enter a position command in degrees that the
 
 
 
-Hardware used:<br/>
-Elegoo Uno R3<br/>
-Elegoo 2.8 Inches TFT Touch Screen with SD Card Socket<br/>
-Servo  Motor<br/>
-Stepper Motor 17hs16-2004s1<br/>
-TB6600 Stepper motor driver<br/>
+**Hardware used:**  <br/>
+•	Elegoo Uno R3
+•	Elegoo 2.8 Inches TFT Touch Screen with SD Card Socket
+•	Servo  Motor
+•	Stepper Motor 17hs16-2004s1
+•	TB6600 Stepper motor driver
