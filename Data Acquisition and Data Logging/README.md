@@ -1,4 +1,4 @@
-Assignment 3: Data Acquisition and Data Logging
+Assignment 3 : Data Acquisition and Data Logging
 ===============================================
 
 
