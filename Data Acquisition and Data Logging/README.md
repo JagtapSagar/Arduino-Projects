@@ -14,7 +14,8 @@ Use the 10 bit on-chip ADC to acquire the analog channel. Store the converted va
 
 Analog voltage data is acquired from your analog source. The readings will be sent to a display or terminal window to mimic a 5-digit voltmeter:
 <p align="center">Channel 1 (Volts)<br/>##.###</p>
-The refresh rate is 100 msec. The program remains in mode 2 until any key is pressed on the keyboard. After a key is pressed, the program goes back to the initial prompt: (“Choose mode:  1 / 2 / 3 :”). <br/><br/> 
+The refresh rate is 100 msec. The program remains in mode 2 until any key is pressed on the keyboard. After a key is pressed, the program goes back to the initial prompt: (“Choose mode:  1 / 2 / 3 :”). 
+
 **Mode 3 – data retrieval**
 
 When selecting Mode 3, the data file saved to the SD card will be retrieved to a PC terminal window as a text file. The text file will be plotted using software such as Matlab or Excel. The plotting software will load the text file and produce a plot with four traces: voltage (Ch. 1) vs. time and digital data channels  X, Y, Z (Ch.2) vs. time 
