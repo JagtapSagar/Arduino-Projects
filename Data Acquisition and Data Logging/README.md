@@ -8,13 +8,13 @@ The objective of this project is to build a data logger for digital and analog m
 
 Data logging of a digital sensor and an analog signal (either from a signal generator, a potentiometer or your choice of analog source). The data must be sampled at 40 Hz for 10 seconds. You MUST use a timer INTERRUPT to create a constant time base. The data must be stored as a text file with the following format:
 <p align="center">Channel 1 (Signal Generator) &nbsp; &nbsp; &nbsp; 	Channel 2 (Digital compass (I2C))<br/>##.###&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DX, DY, DZ<br/>##.###&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DX, DY, DZ</p>
-Use the 10 bit on-chip ADC to acquire the analog channel. Store the converted values to the SD card as floating point numbers that can be read to a plotting software such as Matlab or Excel. At the end of data collection, the program goes back to the initial prompt (“Choose mode:  1 / 2 / 3 :”) 
+Use the 10 bit on-chip ADC to acquire the analog channel. Store the converted values to the SD card as floating point numbers that can be read to a plotting software such as Matlab or Excel. At the end of data collection, the program goes back to the initial prompt (“Choose mode:  1 / 2 / 3 :”) <br/>
 
 **Mode 2 – volt meter**
 
 Analog voltage data is acquired from your analog source. The readings will be sent to a display or terminal window to mimic a 5-digit voltmeter:
 <p align="center">Channel 1 (Volts)<br/>##.###</p>
-The refresh rate is 100 msec. The program remains in mode 2 until any key is pressed on the keyboard. After a key is pressed, the program goes back to the initial prompt: (“Choose mode:  1 / 2 / 3 :”). 
+The refresh rate is 100 msec. The program remains in mode 2 until any key is pressed on the keyboard. After a key is pressed, the program goes back to the initial prompt: (“Choose mode:  1 / 2 / 3 :”). <br/>
 
 **Mode 3 – data retrieval**
 
