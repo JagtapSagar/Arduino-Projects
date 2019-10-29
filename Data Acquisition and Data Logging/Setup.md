@@ -11,6 +11,7 @@ Setup
 **Hardware specific library downloaded for use**
 - MPU9250 : https://github.com/bolderflight/MPU9250
 
+**Note:** Microsoft Excel's _Data Logger_ Add-in was used to connect to serial com and plot graphs
 
 **Pin Map**
 
