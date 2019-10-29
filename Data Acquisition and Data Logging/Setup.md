@@ -8,7 +8,7 @@ Setup
 - MPU9250 9-axis Inertial Measurement Sensor
 - Potentiometer
 
-**Hardware specific libraries Used**
+**Hardware specific library downloaded for use**
 - MPU9250 : https://github.com/bolderflight/MPU9250
 
 
