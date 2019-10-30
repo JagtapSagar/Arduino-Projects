@@ -2,7 +2,7 @@ Setup
 =====
 
 **Hardware used:**
-- Arduino Mega with ATmega 2560
+- ARDUINO MEGA 2560 REV3
 - Elegoo 2.8 Inches TFT Touch Screen with SD Card Socket
 - Adafruit MicroSD Card Breakout Board
 - MPU9250 9-axis Inertial Measurement Sensor
