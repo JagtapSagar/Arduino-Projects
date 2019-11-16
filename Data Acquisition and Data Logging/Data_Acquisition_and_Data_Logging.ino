@@ -1,3 +1,8 @@
+/* Note: I tried using ADC registry to implement non-blocking analogRead(),
+ *       but integrating it in the final program would cause the program to reset continuously.
+ *       The program given below does not include ADC reg implementation.
+*/
+
 #include <Elegoo_GFX.h>              // Core graphics library
 #include <Elegoo_TFTLCD.h>           // Hardware-specific library
 #include <TouchScreen.h>
