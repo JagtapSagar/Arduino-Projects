@@ -1,3 +1,3 @@
 # Mechatronics
 
-This repository includes assignment files from <b><i>MEE5316 Fall 2019 Advanced Mechatronics</i></b> course at FloridaTech.
+This repository includes some mechatronics projects. The projects were done using  number of software: MATLAB, Arduino IDE, Atmel Studios, Visual Studio
