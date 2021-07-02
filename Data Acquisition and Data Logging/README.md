@@ -1,5 +1,5 @@
-Assignment 3 : Data Acquisition and Data Logging
-===============================================
+Data Acquisition and Data Logging
+=================================
 
 
 The objective of this project is to build a data logger for digital and analog measurements using a SD card to record four channels of data over time. The program will operate in one of three modes. Upon power up, the program will prompt for a key stroke (“Choose mode: 1 / 2 / 3:”) over a serial connection, to select operation mode:
