@@ -1,5 +1,5 @@
-Assignment 2 : Control of Servo and Stepper Motors using Touchscreen display
-============================================================================
+Control of Servo and Stepper Motors using Touchscreen display
+=============================================================
 
 The project consists on building a circuit with the Arduino Pro Mini to control a stepper motor and a RC servo motor using an LCD display / touchscreen as user interface.
 
