@@ -1,5 +1,5 @@
-Assignment 1 : Stopwatch
-========================
+Stopwatch
+=========
 
 The  project  consists  on  building  a  circuit  with  the  ARDUINO  Pro  Mini  to  implement  a stopwatch that shows seconds and 1/100th of seconds in the following format:
 **<p align="center">88.88</p>**
