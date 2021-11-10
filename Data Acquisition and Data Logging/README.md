@@ -6,7 +6,7 @@ The objective of this project is to build a data logger for digital and analog m
 
 **Mode 1 – data logger**
 
-Data logging of a digital sensor and an analog signal (either from a signal generator, a potentiometer or your choice of analog source). The data must be sampled at 40 Hz for 10 seconds. You MUST use a timer INTERRUPT to create a constant time base. The data must be stored as a text file with the following format:
+Data logging of a digital sensor and an analog signal (either from a signal generator, a potentiometer). Data sampled at 40 Hz for 10 seconds. A timer interrupt used to create a constant time base. The data is stored as a text file with the following format:
 <p align="center">Channel 1 (Signal Generator) &nbsp; &nbsp; &nbsp; 	Channel 2 (Digital compass (I2C))<br/>##.###&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DX, DY, DZ<br/>##.###&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DX, DY, DZ</p>
 Use the 10 bit on-chip ADC to acquire the analog channel. Store the converted values to the SD card as floating point numbers that can be read to a plotting software such as Matlab or Excel. At the end of data collection, the program goes back to the initial prompt (“Choose mode:  1 / 2 / 3 :”) 
 
